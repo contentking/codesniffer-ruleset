@@ -11,6 +11,7 @@
         <exclude name="Generic.Files.LineLength"/>
         <exclude name="Generic.PHP.LowerCaseKeyword"/>
         <exclude name="PSR2.Namespaces.UseDeclaration"/>
+        <exclude name="PSR2.Namespaces.NamespaceDeclaration"/>
         <exclude name="PSR2.Classes.ClassDeclaration"/>
     </rule>
 
