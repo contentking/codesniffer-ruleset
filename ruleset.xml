@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<ruleset name="DotBlue">
+
+    <description>DotBlue company code standard.</description>
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <rule ref="PSR2">
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
+        <exclude name="Generic.Files.LineLength"/>
+        <exclude name="Generic.PHP.LowerCaseKeyword"/>
+        <exclude name="PSR2.Namespaces.UseDeclaration"/>
+        <exclude name="PSR2.Classes.ClassDeclaration"/>
+    </rule>
+
+    <rule ref="Generic.PHP.UpperCaseConstant"/>
+
+</ruleset>
