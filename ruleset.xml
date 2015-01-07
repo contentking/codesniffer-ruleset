@@ -16,6 +16,7 @@
         <exclude name="PSR2.Namespaces.NamespaceDeclaration"/>
         <exclude name="PSR2.Classes.ClassDeclaration"/>
         <exclude name="Generic.PHP.LowerCaseConstant"/>
+        <exclude name="Squiz.Scope.MethodScope"/>
     </rule>
 
     <rule ref="Generic.PHP.UpperCaseConstant"/>

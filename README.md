@@ -38,6 +38,9 @@ Differences from PSR-2
 	- use 1 empty line in case any use statement follows
 	- use 2 empty lines in case no use statement follows
 - We force one empty line after class body
+- Visibility
+	- must not be declared on interface's method
+	- must be declared on class's method
 
 Todo
 ----
