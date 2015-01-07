@@ -1,7 +1,12 @@
 <?php
 
+namespace DotBlue\Sniffs\Namespaces;
 
-class DotBlue_Sniffs_Namespaces_NamespaceDeclarationSniff extends PSR2_Sniffs_Namespaces_NamespaceDeclarationSniff
+use PHP_CodeSniffer_File;
+use PSR2_Sniffs_Namespaces_NamespaceDeclarationSniff;
+
+
+class NamespaceDeclarationSniff extends PSR2_Sniffs_Namespaces_NamespaceDeclarationSniff
 {
 
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)

@@ -22,11 +22,11 @@ Verify it is installed with `phpcs -i` (you should see DotBlue in output). And u
 Creating rules
 --------------
 
-Make a class in Sniffs directory. Due to fucked up autoloading classname must be composed this way:
+Make a class in Sniffs directory and use PSR-0 with `DotBlue` root namespace;
 
 Filename: `Sniffs/Classes/ClassDeclarationSniff`
 
-Classname: `DotBlue_Sniffs_Classes_ClassDeclarationSniff`
+Classname: `DotBlue\Sniffs\Classes\ClassDeclarationSniff`
 
 Differences from PSR-2
 ----------------------

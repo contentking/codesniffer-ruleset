@@ -1,6 +1,12 @@
 <?php
 
-class DotBlue_Sniffs_Classes_ClassDeclarationSniff extends PSR2_Sniffs_Classes_ClassDeclarationSniff
+namespace DotBlue\Sniffs\Classes;
+
+use PHP_CodeSniffer_File;
+use PSR2_Sniffs_Classes_ClassDeclarationSniff;
+
+
+class ClassDeclarationSniff extends PSR2_Sniffs_Classes_ClassDeclarationSniff
 {
 
 	/**
@@ -58,6 +64,5 @@ class DotBlue_Sniffs_Classes_ClassDeclarationSniff extends PSR2_Sniffs_Classes_C
 		}
 
 	}
-
 
 }
