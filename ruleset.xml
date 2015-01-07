@@ -5,6 +5,7 @@
     <description>DotBlue company code standard.</description>
 
     <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/libs/*</exclude-pattern>
 
     <rule ref="PSR2">
         <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
