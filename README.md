@@ -10,6 +10,15 @@ Usage
 2. Clone this repository somewhere **(folder must be called 'DotBlue')**
 3. Run code sniffer with these parameters: --standard=PATH_TO_DotBlue_ruleset.xml --tab-width=4
 
+Pro installation tip
+-------------------
+In case you installed CodeSniffer globally PEAR/composer you can improve your experience.
+After cloning repository you can symlink directory to 'install' code standard to sniffer:
+
+`ln -s PATH_TO_CLONED_DIR PATH_TO_CODE_SNIFFER_INSTALLATION/Standards/DotBlue`
+ 
+Verify it is installed with `phpcs -i` (you should see DotBlue in output). And use it with just `--standard=DotBlue`
+
 Creating rules
 --------------
 
@@ -19,20 +28,18 @@ Filename: `Sniffs/Classes/ClassDeclarationSniff`
 
 Classname: `DotBlue_Sniffs_Classes_ClassDeclarationSniff`
 
-Excluded rules
---------------
+Differences from PSR-2
+----------------------
 
-- Generic.WhiteSpace.DisallowTabIndent
-- Generic.Files.LineLength
-- Generic.PHP.LowerCaseKeyword
-- PSR2.Namespaces.UseDeclaration
-- PSR2.Classes.ClassDeclaration
+- We use tabs
+- We do not force line lenght - use your brain an common sense
+- We force uppercase constants (incl. TRUE, FALSE, NULL)
+- Namespace declaration
+	- use 1 empty line in case any use statement follows
+	- use 2 empty lines in case no use statement follows
+- We force one empty line after class body
 
-Added rules
------------
+Todo
+----
 
-- Generic.PHP.UpperCaseConstant
-- DotBlue.Classes.ClassDeclaration
-	- force 1 empty line after the body
-- DotBlue.Namespaces.UseDeclaration
-	- force 2 empty lines after the last use
+See [issues](https://github.com/dotblue/CodeSnifferStandard/issues)
