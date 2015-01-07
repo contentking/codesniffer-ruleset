@@ -8,7 +8,7 @@ Usage
 
 1. Install [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 2. Clone this repository somewhere **(folder must be called 'DotBlue')**
-3. Run code sniffer with these parameters: --standard=PATH_TO_DotBlue_ruleset.xml --tab-width=4
+3. Run code sniffer with these parameters: --standard=PATH_TO_DotBlue_ruleset.xml
 
 Pro installation tip
 -------------------
