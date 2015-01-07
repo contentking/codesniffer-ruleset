@@ -28,6 +28,8 @@ Filename: `Sniffs/Classes/ClassDeclarationSniff`
 
 Classname: `DotBlue\Sniffs\Classes\ClassDeclarationSniff`
 
+**Please add documentation file for added/edited rules.**
+
 Differences from PSR-2
 ----------------------
 
@@ -41,6 +43,11 @@ Differences from PSR-2
 - Visibility
 	- must not be declared on interface's method
 	- must be declared on class's method
+
+Generating documentation
+------------------------
+
+Run `phpcs --standard=DotBlue --generator=HTML > doc.html`
 
 Todo
 ----
