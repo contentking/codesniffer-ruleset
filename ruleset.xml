@@ -9,10 +9,10 @@
     <rule ref="PSR2">
         <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
         <exclude name="Generic.Files.LineLength"/>
-        <exclude name="Generic.PHP.LowerCaseKeyword"/>
         <exclude name="PSR2.Namespaces.UseDeclaration"/>
         <exclude name="PSR2.Namespaces.NamespaceDeclaration"/>
         <exclude name="PSR2.Classes.ClassDeclaration"/>
+        <exclude name="Generic.PHP.LowerCaseConstant"/>
     </rule>
 
     <rule ref="Generic.PHP.UpperCaseConstant"/>
