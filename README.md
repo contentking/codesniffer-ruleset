@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dotblue/CodeSnifferStandard.svg?branch=master)](https://travis-ci.org/dotblue/CodeSnifferStandard)
+
 DotBlue CodeSniffer Standard
 ============================
 
