@@ -1,0 +1,53 @@
+<documentation title="Method's DocBlock">
+    <standard>
+        <![CDATA[
+    It is not allowed to add variable names to method's DocBlock. There must be two spaces between @param and type definition
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: Variable name not included">
+            <![CDATA[
+/**
+ * @param  string<em> </em>
+ */
+public function foo($bar)
+{
+}
+        ]]>
+        </code>
+        <code title="Invalid: Variable name included">
+            <![CDATA[
+/**
+ * @param  string <em>$bar</em>
+ */
+public function foo($bar)
+{
+}
+        ]]>
+        </code>
+    </code_comparison>
+
+    <code_comparison>
+        <code title="Valid: Two spaces between @param and type">
+            <![CDATA[
+/**
+ * @param<em>  </em>string
+ */
+public function foo($bar)
+{
+}
+        ]]>
+        </code>
+        <code title="Invalid: One space between @param and type">
+            <![CDATA[
+/**
+ * @param<em> </em>string
+ */
+public function foo($bar)
+{
+}
+        ]]>
+        </code>
+    </code_comparison>
+
+</documentation>
