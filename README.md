@@ -54,6 +54,8 @@ Differences from PSR-2
 - Visibility
 	- must not be declared on interface's method
 	- must be declared on class's method
+- Variable names in method's DocBlock are not allowed
+- There must be exactly two spaces between `@param` and type definition
 
 Generating documentation
 ------------------------
