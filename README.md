@@ -30,6 +30,15 @@ Classname: `DotBlue\Sniffs\Classes\ClassDeclarationSniff`
 
 **Please add documentation file for added/edited rules.**
 
+Testing
+-------
+
+Uses nette/tester. Create test in tests folder - see any test as example.
+Conventions:
+
+- Test filename is as same as sniff name
+- Always create php file in tests/invalid and tests/valid folders to test the sniff
+
 Differences from PSR-2
 ----------------------
 
