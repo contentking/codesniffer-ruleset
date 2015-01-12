@@ -24,4 +24,8 @@ function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
 	Assert::true(isset($errors[$expectedLineWithError]));
 	$error = array_pop($errors[$expectedLineWithError]);
 	Assert::same($expectedMessage, $error[0]['message']);
+
+	// test automatic fixes
+	$file->fixer->fixFile();
+	Assert::matchFile(__DIR__ . '/valid/' . $sniffName . '.php', $file->fixer->getContents());
 }
