@@ -7,9 +7,6 @@ php:
 before_script:
   - composer self-update
   - composer install --no-interaction --prefer-source --dev
-  - mkdir ../DotBlue
-  - cp * ../DotBlue -R
-  - cd ../DotBlue
-  - vendor/bin/phpcs Sniffs --standard=./ruleset.xml -p -s
+  - vendor/bin/phpcs DotBlue/Sniffs --standard=DotBlue/ruleset.xml -p -s
 
-script: vendor/bin/tester tests
+script: vendor/bin/tester DotBlue/tests
