@@ -67,6 +67,11 @@ class NamespaceDeclarationSniff extends PSR2_Sniffs_Namespaces_NamespaceDeclarat
 				}
 
 				$phpcsFile->fixer->addNewline($i);
+
+				if (!$useStatement) {
+					$phpcsFile->fixer->addNewline($i);
+				}
+
 				$phpcsFile->fixer->endChangeset();
 			}
 		}

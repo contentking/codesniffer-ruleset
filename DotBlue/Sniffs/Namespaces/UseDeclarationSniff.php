@@ -84,6 +84,8 @@ class UseDeclarationSniff extends PSR2_Sniffs_Namespaces_UseDeclarationSniff
 					}
 
 					$phpcsFile->fixer->addNewline($end);
+					$phpcsFile->fixer->addNewline($end);
+					$phpcsFile->fixer->addNewline($end);
 					$phpcsFile->fixer->endChangeset();
 				}
 			}

@@ -33,13 +33,26 @@ class MethodScopeSniff extends Squiz_Sniffs_Scope_MethodScopeSniff
 		if ($modifier === NULL && !$this->isInterface($phpcsFile)) {
 			$error = 'Visibility must be declared on method "%s"';
 			$data = [$methodName];
-			$phpcsFile->addError($error, $stackPtr, 'Missing', $data);
+			$fix = $phpcsFile->addFixableError($error, $stackPtr, 'Missing', $data);
+
+			if ($fix) {
+				$phpcsFile->fixer->beginChangeset();
+				$phpcsFile->fixer->addContentBefore($stackPtr, 'public ');
+				$phpcsFile->fixer->endChangeset();
+			}
 		}
 
 		if ($modifier !== NULL && $this->isInterface($phpcsFile)) {
 			$error = 'Visibility must not be declared on method "%s" in interface';
 			$data = [$methodName];
-			$phpcsFile->addError($error, $stackPtr, 'Missing', $data);
+			$fix = $phpcsFile->addFixableError($error, $stackPtr, 'Missing', $data);
+
+			if ($fix) {
+				$phpcsFile->fixer->beginChangeset();
+				$phpcsFile->fixer->replaceToken($stackPtr - 2, '');
+				$phpcsFile->fixer->replaceToken($stackPtr - 1, '');
+				$phpcsFile->fixer->endChangeset();
+			}
 		}
 
 	}
