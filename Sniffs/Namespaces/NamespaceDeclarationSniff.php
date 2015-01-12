@@ -72,5 +72,4 @@ class NamespaceDeclarationSniff extends PSR2_Sniffs_Namespaces_NamespaceDeclarat
 		}
 	}
 
-
 }

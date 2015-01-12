@@ -2,7 +2,6 @@
 
 namespace DotBlue\Sniffs\WhiteSpace;
 
-
 use PHP_CodeSniffer_File;
 use Squiz_Sniffs_WhiteSpace_FunctionSpacingSniff;
 
@@ -125,7 +124,7 @@ class FunctionSpacingSniff extends Squiz_Sniffs_WhiteSpace_FunctionSpacingSniff
 						// Found a previous function.
 						return;
 					}
-				} else if ($tokens[$i]['code'] === T_FUNCTION) {
+				} elseif ($tokens[$i]['code'] === T_FUNCTION) {
 					// Found another interface function.
 					return;
 				}

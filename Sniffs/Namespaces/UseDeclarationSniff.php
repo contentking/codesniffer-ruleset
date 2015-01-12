@@ -11,7 +11,7 @@ class UseDeclarationSniff extends PSR2_Sniffs_Namespaces_UseDeclarationSniff
 
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
-		if ($this->_shouldIgnoreUse($phpcsFile, $stackPtr) === TRUE) {
+		if ($this->shouldIgnoreUse($phpcsFile, $stackPtr) === TRUE) {
 			return;
 		}
 
@@ -48,7 +48,7 @@ class UseDeclarationSniff extends PSR2_Sniffs_Namespaces_UseDeclarationSniff
 
 		// Only interested in the last USE statement from here onwards.
 		$nextUse = $phpcsFile->findNext(T_USE, ($stackPtr + 1));
-		while ($this->_shouldIgnoreUse($phpcsFile, $nextUse) === TRUE) {
+		while ($this->shouldIgnoreUse($phpcsFile, $nextUse) === TRUE) {
 			$nextUse = $phpcsFile->findNext(T_USE, ($nextUse + 1));
 			if ($nextUse === FALSE) {
 				break;
@@ -91,7 +91,8 @@ class UseDeclarationSniff extends PSR2_Sniffs_Namespaces_UseDeclarationSniff
 	}
 
 
-	private function _shouldIgnoreUse(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+
+	private function shouldIgnoreUse(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();
 

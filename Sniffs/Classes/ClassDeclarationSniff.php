@@ -9,15 +9,6 @@ use PSR2_Sniffs_Classes_ClassDeclarationSniff;
 class ClassDeclarationSniff extends PSR2_Sniffs_Classes_ClassDeclarationSniff
 {
 
-	/**
-	 * Processes the closing section of a class declaration.
-	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr The position of the current token
-	 *                                        in the stack passed in $tokens.
-	 *
-	 * @return void
-	 */
 	public function processClose(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();

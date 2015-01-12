@@ -10,5 +10,6 @@ before_script:
   - mkdir ../DotBlue
   - cp * ../DotBlue -R
   - cd ../DotBlue
+  - vendor/bin/phpcs Sniffs --standard=./ruleset.xml -p -s
 
 script: vendor/bin/tester tests

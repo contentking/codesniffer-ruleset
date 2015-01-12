@@ -2,7 +2,6 @@
 
 namespace DotBlue\Sniffs\PhpDoc;
 
-
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;
 
@@ -17,6 +16,7 @@ class MethodParametersSniff implements PHP_CodeSniffer_Sniff
 			T_DOC_COMMENT_TAG
 		];
 	}
+
 
 
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
