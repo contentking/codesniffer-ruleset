@@ -56,6 +56,7 @@ Differences from PSR-2
 	- must be declared on class's method
 - Variable names in method's DocBlock are not allowed
 - There must be exactly two spaces between `@param` and type definition
+- There must be exactly three empty lines between methods
 
 Generating documentation
 ------------------------
