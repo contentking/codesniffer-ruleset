@@ -13,15 +13,15 @@ function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
 	$sniffer = new PHP_CodeSniffer();
 	$sniffer->initStandard(__DIR__ . '/../ruleset.xml');
 
+	// test valid
+	$file = $sniffer->processFile(__DIR__ . '/valid/' . $sniffName . '.php');
+	$errors = $file->getErrors();
+	Assert::true(empty($errors));
+
 	// test invalid
 	$file = $sniffer->processFile(__DIR__ . '/invalid/' . $sniffName . '.php');
 	$errors = $file->getErrors();
 	Assert::true(isset($errors[$expectedLineWithError]));
 	$error = array_pop($errors[$expectedLineWithError]);
 	Assert::same($expectedMessage, $error[0]['message']);
-
-	// test valid
-	$file = $sniffer->processFile(__DIR__ . '/valid/' . $sniffName . '.php');
-	$errors = $file->getErrors();
-	Assert::true(empty($errors));
 }
