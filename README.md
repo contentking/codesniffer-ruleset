@@ -5,12 +5,37 @@ DotBlue CodeSniffer Standard
 
 This standard overrides some PSR-2 rules and adds some specific dotBlue rules.
 
+Installation
+------------
+
+1. Register `dotblue/codesniffer-ruleset` manually in your `composer.json`.
+	```
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:dotblue/codesniffer-ruleset.git"
+		}
+	]
+	```
+
+2. Install [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+	```
+	composer require --dev squizlabs/php_codesniffer
+	```
+
+3. Install `dotblue/codesniffer-ruleset`.
+	```
+	composer require --dev dotblue/codesniffer-ruleset:@dev
+	```
+
 Usage
 -----
 
-1. Install [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
-2. Clone this repository somewhere **(folder must be called 'DotBlue')**
-3. Run code sniffer with these parameters: --standard=PATH_TO_DotBlue_ruleset.xml
+Run following command with `<target>` replaced by path to your source code:
+
+```
+vendor/bin/phpcs <target> --standard=vendor/dotblue/codesniffer-ruleset/DotBlue/ruleset.xml
+```
 
 Pro installation tip
 -------------------
@@ -61,7 +86,9 @@ Differences from PSR-2
 Generating documentation
 ------------------------
 
-Run `phpcs --standard=DotBlue --generator=HTML > doc.html`
+```
+vendor/bin/phpcs --standard=vendor/bin/dotblue/codesniffer-ruleset/DotBlue --generator=HTML > cs-docs.html
+```
 
 Todo
 ----
