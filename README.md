@@ -82,6 +82,7 @@ Differences from PSR-2
 - Variable names in method's DocBlock are not allowed
 - There must be exactly two spaces between `@param` and type definition
 - There must be exactly three empty lines between methods
+- There must always be parentheses after constructor call.
 
 Generating documentation
 ------------------------
