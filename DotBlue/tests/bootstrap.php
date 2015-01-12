@@ -3,7 +3,7 @@
 use Tester\Assert;
 
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 \Tester\Environment::setup();
 define('PHP_CODESNIFFER_IN_TESTS', TRUE);
