@@ -7,6 +7,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 \Tester\Environment::setup();
 define('PHP_CODESNIFFER_IN_TESTS', TRUE);
+define('PHP_CODESNIFFER_CBF', TRUE);
 
 function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
 {
@@ -25,7 +26,10 @@ function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
 	$error = array_pop($errors[$expectedLineWithError]);
 	Assert::same($expectedMessage, $error[0]['message']);
 
-	// test automatic fixes
-	$file->fixer->fixFile();
-	Assert::matchFile(__DIR__ . '/valid/' . $sniffName . '.php', $file->fixer->getContents());
+	exec('../../vendor/bin/phpcbf invalid/' . $sniffName . '.php --standard=../ruleset.xml --suffix=.fixed', $out, $status);
+	if ($status === 1) {
+		$content = file_get_contents(__DIR__ . '/invalid/' . $sniffName . '.php.fixed');
+		Assert::matchFile(__DIR__ . '/valid/' . $sniffName . '.php', $content);
+	}
+
 }

@@ -31,7 +31,7 @@ class ClassDeclarationSniff extends PSR2_Sniffs_Classes_ClassDeclarationSniff
 			if ($fix === TRUE) {
 				$phpcsFile->fixer->beginChangeset();
 				for ($i = ($prevContent + 1); $i < $closeBrace; $i++) {
-					$phpcsFile->fixer->replaceToken($i, '');
+					$phpcsFile->fixer->replaceToken($i, '' . $phpcsFile->eolChar);
 				}
 
 				if (strpos($tokens[$prevContent]['content'], $phpcsFile->eolChar) === FALSE) {
