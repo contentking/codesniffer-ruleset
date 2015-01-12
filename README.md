@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dotblue/CodeSnifferStandard.svg?branch=master)](https://travis-ci.org/dotblue/CodeSnifferStandard)
+[![Build Status](https://travis-ci.org/dotblue/codesniffer-ruleset.svg?branch=master)](https://travis-ci.org/dotblue/codesniffer-ruleset)
 
 DotBlue CodeSniffer Standard
 ============================
