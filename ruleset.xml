@@ -17,8 +17,16 @@
         <exclude name="PSR2.Classes.ClassDeclaration"/>
         <exclude name="Generic.PHP.LowerCaseConstant"/>
         <exclude name="Squiz.Scope.MethodScope"/>
+        <!--<exclude name="Squiz.Functions.MultiLineFunctionDeclaration"/>-->
+        <exclude name="Squiz.WhiteSpace.ScopeClosingBrace"/>
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing"/>
     </rule>
 
     <rule ref="Generic.PHP.UpperCaseConstant"/>
+    <rule ref="DotBlue.WhiteSpace.FunctionSpacing">
+        <properties>
+            <property name="spacing" value="3"/>
+        </properties>
+    </rule>
 
 </ruleset>
