@@ -13,4 +13,13 @@ class Bar
 	{
 	}
 
+
+
+	/**
+	 * @param  callable ($bar)
+	 */
+	public function bar(callable $foo)
+	{
+	}
+
 }
