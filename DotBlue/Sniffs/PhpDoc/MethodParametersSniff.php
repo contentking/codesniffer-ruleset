@@ -41,7 +41,10 @@ class MethodParametersSniff implements PHP_CodeSniffer_Sniff
 
 		$paramDefinition = $tokens[$stackPtr + 2]['content'];
 
-		if (strpos($paramDefinition, '$') !== FALSE) {
+		$foundProblems = array_filter(explode(' ', $paramDefinition), function ($part) {
+			return strpos($part, '$') === 0;
+		});
+		if ($foundProblems) {
 			$fix = $phpcsFile->addFixableError('Variable names in method\'s DocBlock comments are not allowed.', $stackPtr, 'ParameterName');
 
 			if ($fix) {
