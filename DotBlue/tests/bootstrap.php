@@ -9,10 +9,18 @@ require __DIR__ . '/../../vendor/autoload.php';
 define('PHP_CODESNIFFER_IN_TESTS', TRUE);
 define('PHP_CODESNIFFER_CBF', TRUE);
 
-function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
+function createSniffer()
 {
 	$sniffer = new PHP_CodeSniffer();
 	$sniffer->initStandard(__DIR__ . '/../ruleset.xml');
+	return $sniffer;
+}
+
+
+
+function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
+{
+	$sniffer = createSniffer();
 
 	// test valid
 	$file = $sniffer->processFile(__DIR__ . '/valid/' . $sniffName . '.php');
@@ -32,4 +40,5 @@ function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
 		Assert::matchFile(__DIR__ . '/valid/' . $sniffName . '.php', $content);
 	}
 
+	return [$sniffer, $file];
 }
