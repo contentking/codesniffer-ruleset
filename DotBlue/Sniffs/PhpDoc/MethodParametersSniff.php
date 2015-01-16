@@ -23,10 +23,20 @@ class MethodParametersSniff implements PHP_CodeSniffer_Sniff
 	{
 		$tokens = $phpcsFile->getTokens();
 
-		if ($tokens[$stackPtr]['content'] !== '@param') {
-			return;
+		if ($tokens[$stackPtr]['content'] === '@param') {
+			$this->processParam($phpcsFile, $stackPtr, $tokens);
 		}
 
+		if ($tokens[$stackPtr]['content'] === '@return') {
+			$this->processReturn($phpcsFile, $stackPtr, $tokens);
+		}
+
+	}
+
+
+
+	private function processParam(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $tokens)
+	{
 		$whitespace = $tokens[$stackPtr + 1]['content'];
 
 		if ($whitespace !== '  ') {
@@ -53,7 +63,23 @@ class MethodParametersSniff implements PHP_CodeSniffer_Sniff
 				$phpcsFile->fixer->endChangeset();
 			}
 		}
+	}
 
+
+
+	private function processReturn(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $tokens)
+	{
+		$whitespace = $tokens[$stackPtr + 1]['content'];
+
+		if ($whitespace !== ' ') {
+			$fix = $phpcsFile->addFixableError('There must be exactly one space between @return and type. Found %s.', $stackPtr, 'Whitespace', [strlen($whitespace)]);
+
+			if ($fix) {
+				$phpcsFile->fixer->beginChangeset();
+				$phpcsFile->fixer->replaceToken($stackPtr + 1, ' ');
+				$phpcsFile->fixer->endChangeset();
+			}
+		}
 	}
 
 }
