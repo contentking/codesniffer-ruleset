@@ -17,8 +17,7 @@ function createSniffer()
 }
 
 
-
-function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
+function testSniff($sniffName, $expectedLineWithError, $expectedMessage, $fixable = TRUE)
 {
 	$sniffer = createSniffer();
 
@@ -31,8 +30,23 @@ function testSniff($sniffName, $expectedLineWithError, $expectedMessage)
 	$file = $sniffer->processFile(__DIR__ . '/invalid/' . $sniffName . '.php');
 	$errors = $file->getErrors();
 	Assert::true(isset($errors[$expectedLineWithError]));
-	$error = array_pop($errors[$expectedLineWithError]);
-	Assert::same($expectedMessage, $error[0]['message']);
+	$errors = $errors[$expectedLineWithError];
+
+	$errorFound = FALSE;
+	foreach ($errors as $error) {
+		if ($error[0]['message'] === $expectedMessage) {
+			$errorFound = TRUE;
+			break;
+		}
+	}
+
+	if (!$errorFound) {
+		Assert::fail('Required error message "' . $expectedMessage . '" not found on line "' . $expectedLineWithError . '"');
+	}
+
+	if (!$fixable) {
+		return [$sniffer, $file];
+	}
 
 	exec('../../vendor/bin/phpcbf invalid/' . $sniffName . '.php --standard=../ruleset.xml --suffix=.fixed', $out, $status);
 	if ($status === 1) {
