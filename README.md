@@ -70,7 +70,7 @@ Differences from PSR-2
 ----------------------
 
 - We use tabs
-- We do not force line lenght - use your brain an common sense
+- We do not force line length - use your brain and common sense
 - We force uppercase constants (incl. TRUE, FALSE, NULL)
 - Namespace declaration
 	- use 1 empty line in case any use statement follows
