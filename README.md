@@ -83,6 +83,8 @@ Differences from PSR-2
 - There must be exactly two spaces between `@param` and type definition
 - There must be exactly three empty lines between methods
 - There must always be parentheses after constructor call.
+- Force one space between `@return` and type.
+- Enable inline methods in case there is no method body.
 
 Generating documentation
 ------------------------
