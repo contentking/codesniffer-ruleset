@@ -21,6 +21,7 @@
         <exclude name="Squiz.WhiteSpace.ScopeClosingBrace"/>
         <exclude name="Squiz.WhiteSpace.FunctionSpacing"/>
         <exclude name="PSR2.Methods.FunctionCallSignature.Indent"/>
+        <exclude name="PSR2.Methods.FunctionCallSignature.ContentAfterOpenBracket"/>
     </rule>
 
     <rule ref="Generic.PHP.UpperCaseConstant"/>
