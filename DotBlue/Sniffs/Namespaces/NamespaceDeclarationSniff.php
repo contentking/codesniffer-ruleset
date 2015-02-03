@@ -30,7 +30,7 @@ class NamespaceDeclarationSniff extends PSR2_Sniffs_Namespaces_NamespaceDeclarat
 
 		$diff = ($tokens[$next]['line'] - $tokens[$i]['line']);
 
-		$useStatement = $phpcsFile->findNext(T_USE, $i, $phpcsFile->numTokens);
+		$useStatement = $phpcsFile->findNext(T_USE, $i, $phpcsFile->findNext(T_CLASS, $i, $phpcsFile->numTokens));
 
 		if ($useStatement === FALSE) {
 			if ($diff !== 2) {
