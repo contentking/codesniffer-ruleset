@@ -85,6 +85,7 @@ Differences from PSR-2
 - There must always be parentheses after constructor call.
 - Force one space between `@return` and type.
 - Enable inline methods in case there is no method body.
+- Usage of 'boolean' in typehints is forbidden. Use 'bool' only.
 
 Generating documentation
 ------------------------
