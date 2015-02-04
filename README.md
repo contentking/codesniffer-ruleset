@@ -86,6 +86,7 @@ Differences from PSR-2
 - Force one space between `@return` and type.
 - Enable inline methods in case there is no method body.
 - Usage of 'boolean' in typehints is forbidden. Use 'bool' only.
+- Disabled absolute namespace usage. Import everything with 'use' statement
 
 Generating documentation
 ------------------------
