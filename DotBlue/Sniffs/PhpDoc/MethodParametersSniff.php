@@ -9,7 +9,6 @@ use PHP_CodeSniffer_Sniff;
 class MethodParametersSniff implements PHP_CodeSniffer_Sniff
 {
 
-
 	public function register()
 	{
 		return [

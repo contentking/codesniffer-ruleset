@@ -8,7 +8,7 @@ class Bar
 
 	public function foo()
 	{
-
 	}
+
 
 }
