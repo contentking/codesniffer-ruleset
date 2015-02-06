@@ -1,5 +1,12 @@
 <?php
 
+use DotBlue\CodeSniffer\Helpers\Tester;
+
+
 require __DIR__ . '/bootstrap.php';
 
-testSniff('EmptyInlineMethod', 13, 'Inline method is allowed only for methods without body', FALSE);
+$tester = new Tester();
+$tester->setFile('EmptyInlineMethod')
+	->expectMessage('Inline method is allowed only for methods without body')
+	->onLine(13);
+$tester->test();

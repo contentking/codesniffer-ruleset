@@ -1,7 +1,24 @@
 <?php
 
+use DotBlue\CodeSniffer\Helpers\Tester;
+
+
 require __DIR__ . '/bootstrap.php';
 
-testSniff('PhpDocMethodParametersName', 10, 'Variable names in method\'s DocBlock comments are not allowed.');
-testSniff('PhpDocMethodParametersWhitespace', 10, 'There must be two spaces between @param and type. Found 1.');
-testSniff('PhpDocMethodReturnWhitespace', 11, 'There must be exactly one space between @return and type. Found 2.');
+$tester = new Tester();
+$tester->setFile('PhpDocMethodParametersName')
+	->expectMessage('Variable names in method\'s DocBlock comments are not allowed.')
+	->onLine(10)
+	->isFixable();
+
+$tester->setFile('PhpDocMethodParametersWhitespace')
+	->expectMessage('There must be two spaces between @param and type. Found 1.')
+	->onLine(10)
+	->isFixable();
+
+$tester->setFile('PhpDocMethodReturnWhitespace')
+	->expectMessage('There must be exactly one space between @return and type. Found 2.')
+	->onLine(11)
+	->isFixable();
+
+$tester->test();

@@ -1,6 +1,16 @@
 <?php
 
+use DotBlue\CodeSniffer\Helpers\Tester;
+
+
 require __DIR__ . '/bootstrap.php';
 
-testSniff('AbsoluteNamespaceUsage', 9, 'Using absolute namespaces if forbidden. Import class \'\\StdClass\' with use statement.', FALSE);
-testSniff('AbsoluteNamespaceUsage', 16, 'Using absolute namespaces if forbidden. Import class \'\\Nette\\Utils\\Strings\' with use statement.', FALSE);
+$tester = new Tester();
+$tester->setFile('AbsoluteNamespaceUsage')
+	->expectMessage('Using absolute namespaces if forbidden. Import class \'\\StdClass\' with use statement.')
+	->onLine(9)
+	->getFile()
+	->expectMessage('Using absolute namespaces if forbidden. Import class \'\\Nette\\Utils\\Strings\' with use statement.')
+	->onLine(16);
+
+$tester->test();
