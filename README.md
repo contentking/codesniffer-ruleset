@@ -90,6 +90,9 @@ Differences from PSR-2
 - Disabled absolute namespace usage. Import everything with 'use' statement
 - There must be exactly one space between `&` and variable name
 - Forbidden calls of functions `d`, `dump`, `var_dump`
+- Ruleset can find unused private properties
+	- even with aliased $this
+	- even static properties (self::, ClassName::)
 
 Generating documentation
 ------------------------
