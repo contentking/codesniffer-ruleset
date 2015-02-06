@@ -16,6 +16,9 @@ class Tester
 
 
 
+	/**
+	 * @param  array
+	 */
 	public static function setup($setup)
 	{
 		self::$setup = $setup;
@@ -23,6 +26,10 @@ class Tester
 
 
 
+	/**
+	 * @param  string
+	 * @return TestedFile
+	 */
 	public function setFile($file)
 	{
 		$testedFile = new TestedFile($file);

@@ -23,6 +23,10 @@ class TestedFile
 
 
 
+	/**
+	 * @param  string
+	 * @return Expectation
+	 */
 	public function expectMessage($message)
 	{
 		$expectation = new Expectation($message, $this);
@@ -32,6 +36,9 @@ class TestedFile
 
 
 
+	/**
+	 * @param  PHP_CodeSniffer
+	 */
 	public function evaluate(PHP_CodeSniffer $sniffer)
 	{
 		foreach ($this->expectations as $expectation) {
@@ -41,7 +48,9 @@ class TestedFile
 
 
 
-	/** @return string */
+	/**
+	 * @return string
+	 */
 	public function getName()
 	{
 		return $this->file;

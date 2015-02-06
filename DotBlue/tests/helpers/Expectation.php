@@ -9,10 +9,13 @@ use Tester\Assert;
 class Expectation
 {
 
+	/** @var string */
 	private $expectedMessage;
 
+	/** @var int[] */
 	private $expectedOnLines = [];
 
+	/** @var bool */
 	private $isFixable = FALSE;
 
 	/** @var PHP_CodeSniffer */
@@ -31,6 +34,11 @@ class Expectation
 
 
 
+	/**
+	 * Expect an error message on given line
+	 * @param  int
+	 * @return $this
+	 */
 	public function onLine($line)
 	{
 		$this->expectedOnLines[] = $line;
@@ -39,6 +47,11 @@ class Expectation
 
 
 
+	/**
+	 * Expect an error message on given lines
+	 * @param  int []
+	 * @return $this
+	 */
 	public function onLines(array $lines)
 	{
 		foreach ($lines as $line) {
@@ -49,6 +62,10 @@ class Expectation
 
 
 
+	/**
+	 * Set sniff as fixable. The .fixed variant of invalid file will be tested against valid file
+	 * @return $this
+	 */
 	public function isFixable()
 	{
 		$this->isFixable = TRUE;
@@ -57,6 +74,9 @@ class Expectation
 
 
 
+	/**
+	 * @param  PHP_CodeSniffer
+	 */
 	public function evaluate(PHP_CodeSniffer $sniffer)
 	{
 		$this->sniffer = $sniffer;
