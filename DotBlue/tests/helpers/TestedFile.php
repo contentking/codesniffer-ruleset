@@ -14,6 +14,9 @@ class TestedFile
 	/** @var string */
 	private $file;
 
+	/** @var string */
+	private $sniff;
+
 
 
 	public function __construct($file)
@@ -54,6 +57,28 @@ class TestedFile
 	public function getName()
 	{
 		return $this->file;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getSniff()
+	{
+		return $this->sniff;
+	}
+
+
+
+	/**
+	 * @param  string
+	 * @return $this
+	 */
+	public function setSniff($sniff)
+	{
+		$this->sniff = $sniff;
+		return $this;
 	}
 
 }
