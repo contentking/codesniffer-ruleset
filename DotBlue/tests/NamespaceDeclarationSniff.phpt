@@ -1,6 +1,19 @@
 <?php
 
+use DotBlue\CodeSniffer\Helpers\Tester;
+
+
 require __DIR__ . '/bootstrap.php';
 
-testSniff('NamespaceDeclarationWithoutUseStatement', 3, 'There must be two blank lines after the namespace declaration. In case there is no use statement. Found 1');
-testSniff('NamespaceDeclarationWithUseStatement', 3, 'There must be one blank line after the namespace declaration in case use statement follows. Found 2');
+$tester = new Tester();
+$tester->setFile('NamespaceDeclarationWithoutUseStatement')
+	->expectMessage('There must be two blank lines after the namespace declaration. In case there is no use statement. Found 1')
+	->onLine(3)
+	->isFixable();
+
+$tester->setFile('NamespaceDeclarationWithUseStatement')
+	->expectMessage('There must be one blank line after the namespace declaration in case use statement follows. Found 2')
+	->onLine(3)
+	->isFixable();
+
+$tester->test();

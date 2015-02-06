@@ -1,8 +1,30 @@
 <?php
 
+use DotBlue\CodeSniffer\Helpers\Tester;
+
+
 require __DIR__ . '/bootstrap.php';
 
-testSniff('ForceEmptyConstructorParentheses', 3, 'There must be parentheses after constructor call.');
-testSniff('ForceEmptyConstructorParenthesesNamespaced', 3, 'There must be parentheses after constructor call.');
-testSniff('ForceEmptyConstructorParenthesesInFunctionCall', 3, 'There must be parentheses after constructor call.');
-testSniff('ForceEmptyConstructorParenthesesInArray', 4, 'There must be parentheses after constructor call.');
+$tester = new Tester();
+
+$tester->setFile('ForceEmptyConstructorParentheses')
+	->expectMessage('There must be parentheses after constructor call.')
+	->onLine(3)
+	->isFixable();
+
+$tester->setFile('ForceEmptyConstructorParenthesesNamespaced')
+	->expectMessage('There must be parentheses after constructor call.')
+	->onLine(3)
+	->isFixable();
+
+$tester->setFile('ForceEmptyConstructorParenthesesInFunctionCall')
+	->expectMessage('There must be parentheses after constructor call.')
+	->onLine(3)
+	->isFixable();
+
+$tester->setFile('ForceEmptyConstructorParenthesesInArray')
+	->expectMessage('There must be parentheses after constructor call.')
+	->onLine(4)
+	->isFixable();
+
+$tester->test();

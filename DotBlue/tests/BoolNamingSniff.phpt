@@ -1,7 +1,14 @@
 <?php
 
+use DotBlue\CodeSniffer\Helpers\Tester;
+
+
 require __DIR__ . '/bootstrap.php';
 
-testSniff('BoolNaming', 10, 'Usage of "boolean" is forbidden. Use "bool" instead.');
-testSniff('BoolNaming', 20, 'Usage of "boolean" is forbidden. Use "bool" instead.');
-testSniff('BoolNaming', 24, 'Usage of "boolean" is forbidden. Use "bool" instead.');
+$tester = new Tester();
+$tester->setFile('BoolNaming')
+	->expectMessage('Usage of "boolean" is forbidden. Use "bool" instead.')
+	->onLines([10, 20, 24])
+	->isFixable();
+
+$tester->test();
