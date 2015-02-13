@@ -36,4 +36,9 @@ $tester->setFile('ClassDeclaration_5')
 	->onLine(7)
 	->isFixable();
 
+$tester->setFile('ClassDeclaration_6')
+	->setSniff('Classes.ClassDeclaration')
+	->expectMessage('Both opening and closing brace must be on same line as declaration in case of empty body.')
+	->onLine(7);
+
 $tester->test();

@@ -27,6 +27,14 @@ class ClassDeclarationSniff implements PHP_CodeSniffer_Sniff
 		$opener = $tokens[$token['scope_opener']];
 		$closer = $tokens[$token['scope_closer']];
 
+		if ($tokens[$token['scope_opener']]['line'] === $tokens[$token['scope_closer']]['line']) {
+			if ($tokens[$token['scope_opener']]['line'] !== $tokens[$stackPtr]['line']) {
+ 				$phpcsFile->addError('Both opening and closing brace must be on same line as declaration in case of empty body.', $token['scope_opener']);
+			}
+
+			return;
+		}
+
 		if ($opener) {
 			$this->processOpen($phpcsFile, $token['scope_opener']);
 		}
