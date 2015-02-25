@@ -112,18 +112,22 @@ class Expectation
 	private function testInvalid()
 	{
 		$file = $this->sniffer->processFile(Tester::$setup['invalidDir'] . $this->testedFile->getName() . '.php');
-		$errors = $file->getErrors();
+		$allErrors = $file->getErrors();
 
 		foreach ($this->expectedOnLines as $line) {
-			Assert::true(isset($errors[$line]));
+			if (!isset($allErrors[$line])) {
+				Assert::fail('Expected error on line "' . $line . '" not found.');
+			}
 
-			$errorsOnLine = $errors[$line];
+			$errorsOnLine = $allErrors[$line];
 
 			$errorFound = FALSE;
-			foreach ($errorsOnLine as $error) {
-				if ($error[0]['message'] === $this->expectedMessage) {
-					$errorFound = TRUE;
-					break;
+			foreach ($errorsOnLine as $errors) {
+				foreach ($errors as $error) {
+					if ($error['message'] === $this->expectedMessage) {
+						$errorFound = TRUE;
+						break;
+					}
 				}
 			}
 
@@ -143,6 +147,7 @@ class Expectation
 			$content = file_get_contents(Tester::$setup['invalidDir'] . $this->testedFile->getName() . '.php.fixed');
 			Assert::matchFile(Tester::$setup['validDir'] . $this->testedFile->getName() . '.php', $content);
 		}
+		unlink(Tester::$setup['invalidDir'] . $this->testedFile->getName() . '.php.fixed');
 	}
 
 }
