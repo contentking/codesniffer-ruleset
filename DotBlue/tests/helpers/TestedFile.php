@@ -32,7 +32,20 @@ class TestedFile
 	 */
 	public function expectMessage($message)
 	{
-		$expectation = new Expectation($message, $this);
+		$expectation = new PositiveExpectation($message, $this);
+		$this->expectations[] = $expectation;
+		return $expectation;
+	}
+
+
+
+	/**
+	 * @param  string
+	 * @return NegativeExpectation
+	 */
+	public function doNotExpectMessage($message)
+	{
+		$expectation = new NegativeExpectation($message, $this);
 		$this->expectations[] = $expectation;
 		return $expectation;
 	}
