@@ -33,7 +33,6 @@ class AbsoluteNamespaceUsageSniff implements PHP_CodeSniffer_Sniff
 				T_STRING,
 			]));
 			$namespace = trim($namespace);
-			var_dump($namespace);
 
 			$phpcsFile->addError('Using absolute namespaces if forbidden. Import class \'' . $namespace . '\' with use statement.', $stackPtr);
 		}
