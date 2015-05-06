@@ -89,6 +89,7 @@ Differences from PSR-2
 - Usage of 'boolean' in typehints is forbidden. Use 'bool' only.
 - Disabled absolute namespace usage. Import everything with 'use' statement
 - There must be exactly one space between `&` and variable name
+- Forbidden calls of functions `d`, `dump`, `var_dump`
 
 Generating documentation
 ------------------------
