@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dotblue/codesniffer-ruleset.svg?branch=master)](https://travis-ci.org/dotblue/codesniffer-ruleset)
+[![Build Status](https://travis-ci.org/contentking/codesniffer-ruleset.svg?branch=master)](https://travis-ci.org/contentking/codesniffer-ruleset)
 
 DotBlue CodeSniffer Standard
 ============================
@@ -13,7 +13,7 @@ Installation
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "git@github.com:dotblue/codesniffer-ruleset.git"
+			"url": "git@github.com:contentking/codesniffer-ruleset.git"
 		}
 	]
 	```
@@ -25,7 +25,7 @@ Installation
 
 3. Install `dotblue/codesniffer-ruleset`.
 	```
-	composer require --dev dotblue/codesniffer-ruleset:@dev
+	composer require --dev contentking/codesniffer-ruleset:@dev
 	```
 
 Usage
@@ -34,7 +34,7 @@ Usage
 Run following command with `<target>` replaced by path to your source code:
 
 ```
-vendor/bin/phpcs <target> --standard=vendor/dotblue/codesniffer-ruleset/DotBlue/ruleset.xml
+vendor/bin/phpcs <target> --standard=vendor/contentking/codesniffer-ruleset/DotBlue/ruleset.xml
 ```
 
 Pro installation tip
@@ -98,10 +98,10 @@ Generating documentation
 ------------------------
 
 ```
-vendor/bin/phpcs --standard=vendor/bin/dotblue/codesniffer-ruleset/DotBlue --generator=HTML > cs-docs.html
+vendor/bin/phpcs --standard=vendor/bin/contentking/codesniffer-ruleset/DotBlue --generator=HTML > cs-docs.html
 ```
 
 Todo
 ----
 
-See [issues](https://github.com/dotblue/CodeSnifferStandard/issues)
+See [issues](https://github.com/contentking/codesniffer-ruleset/issues)
