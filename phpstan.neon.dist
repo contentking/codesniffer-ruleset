@@ -1,0 +1,6 @@
+parameters:
+	autoload_directories:
+		- %rootDir%/../../../src
+	autoload_files:
+		- %rootDir%/../../../vendor/autoload.php
+		- %rootDir%/../../../vendor/squizlabs/php_codesniffer/autoload.php
