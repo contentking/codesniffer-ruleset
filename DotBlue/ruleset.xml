@@ -25,6 +25,7 @@
         <exclude name="PSR2.Methods.FunctionCallSignature.ContentAfterOpenBracket"/>
         <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
         <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterReference"/>
     </rule>
 
     <rule ref="Generic.PHP.UpperCaseConstant"/>
